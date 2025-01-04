@@ -15,7 +15,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     namespace = "com.tnps.rolebase"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk 36
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -32,10 +32,10 @@ android {
         applicationId = "com.tnps.rolebase"
         
         // Update the minSdkVersion to 23 as suggested in the error message.
-        minSdkVersion 23
-        targetSdk = flutter.targetSdkVersion
-        versionCode 2
-        versionName "1.0.1"
+        minSdkVersion flutter.minSdkVersion
+        targetSdk = 35
+        versionCode 10
+        versionName "10.0.0"
         multiDexEnabled true
     }
 signingConfigs {

@@ -1,18 +1,9 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-// import 'package:rolebase/Captain/AnnouncementCaptain.dart';
-// import 'package:rolebase/Captain/HistoryCaptain.dart';
-// import 'package:rolebase/CaptainDashboard.dart';
-// import 'package:rolebase/announcement.dart';
-// import 'package:rolebase/history_screen.dart';
-import 'LoginPage.dart'; // Import the login page
 import 'splash.dart';
-// import 'package:rolebase/history_screen.dart';
-// import 'package:rolebase/CaptainDashboard.dart'; 
-// import 'package:rolebase/Captain/HistoryCaptain.dart';
-// import 'package:rolebase/ManagementDashboard.dart';
-// import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:rolebase/CaptainDashboard.dart'; 
+// import 'lib/Captain/ManagementHomePage.dart';
+
 
 
 
@@ -37,7 +28,7 @@ class MyApp extends StatelessWidget {
     //  home: ManagementLandingPage(),
       //  home: LoginPage(),
       // home: CaptainLandingPage(),
-      home: const SplashScreen(),
+      home: const SplashScreen(),   // MAin according used app in league
     );
   }
 }

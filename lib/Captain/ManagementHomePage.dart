@@ -55,6 +55,3 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-//  ManagementLandingPage(),
-//     SendMessageScreen(),
-//     HistoryScreen(),

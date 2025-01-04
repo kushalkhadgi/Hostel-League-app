@@ -15,7 +15,7 @@ import 'Captains.dart';
 import 'Developers.dart';
 import 'LoginPage.dart';
 import 'package:rolebase/stories.dart';
-import  'package:rolebase/aboutleague.dart';
+import 'package:rolebase/aboutleague.dart';
 import 'package:rolebase/Photos.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -223,7 +223,7 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
             _buildDrawerItem(context, Icons.image_outlined, 'Photos', () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => GalleryScreen()));
             }),
-            _buildDrawerItem(context, Icons.logout_rounded, 'Logout', () {
+            _buildDrawerItem(context, Icons.login_rounded, 'Login', () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()));
             }),
           ],

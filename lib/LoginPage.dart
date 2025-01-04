@@ -59,17 +59,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                 SizedBox(height: 20),
 
-                // Google Sign-In Button for new users
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                  ),
-                  onPressed: _signInWithGoogle,
-                  icon: Icon(Icons.login, color: Colors.redAccent),
-                  label: Text('Login with Google'),
-                ),
-
                 if (errorMessage != null) ...[
                   SizedBox(height: 20),
                   Text(
@@ -172,48 +161,6 @@ class _LoginPageState extends State<LoginPage> {
       });
     }
   }
-
-  // Google Sign-In method
-  Future<void> _signInWithGoogle() async {
-  setState(() {
-    _isLoading = true;
-    errorMessage = null;
-  });
-
-  try {
-    final GoogleSignIn googleSignIn = GoogleSignIn();
-    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-
-    if (googleUser == null) {
-      setState(() {
-        _isLoading = false;
-        errorMessage = 'Google Sign-In was cancelled';
-      });
-      return;
-    }
-
-    final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-    final AuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-   await _auth.signInWithCredential(credential);
-
-    // All Google users go to Captain Dashboard directly, no role check
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => HomePage(role: 'captain'), // Treat all Google users as captains
-      ),
-    );
-  } catch (e) {
-    setState(() {
-      errorMessage = 'Google Sign-In failed: ${e.toString()}';
-      _isLoading = false;
-    });
-  }
-}
 }
 
 
