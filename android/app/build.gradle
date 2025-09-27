@@ -32,7 +32,7 @@ android {
         applicationId = "com.tnps.rolebase"
         
         // Update the minSdkVersion to 23 as suggested in the error message.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 23
         targetSdk = 35
         versionCode 10
         versionName "10.0.0"
