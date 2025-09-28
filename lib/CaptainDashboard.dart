@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart'; // Remove Firestore import
 import 'package:rolebase/Scoreboard.dart'; 
 import 'management_info_screen.dart';
 import 'package:rolebase/Captain/AnnaWarriorCaptain.dart';
@@ -20,7 +20,6 @@ import 'package:rolebase/Photos.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:async';
-import 'dart:math';
 
 class CaptainLandingPage extends StatefulWidget {
   @override
@@ -33,7 +32,7 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
   late Timer _timer;
 
   // Sample list of card data (can be replaced with actual data)
-  final List<Map<String, String>> cardData = [
+  final List<Map<String, String>> _cardData = [
     {'title': 'Black Eagles', 'logo': 'assets/logo1.png'},
     {'title': 'Anna Warriors', 'logo': 'assets/logo2.png'},
     {'title': 'Defending Titans', 'logo': 'assets/logo3.png'},
@@ -49,6 +48,7 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
     super.initState();
     _pageController = PageController(initialPage: 0);
     _startAutoSlide();
+    // _fetchTeamData(); // Removed Firestore call
   }
 
   @override
@@ -76,15 +76,15 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
 
   Future<List<String>> _fetchPhotoUrls() async {
     try {
-      DocumentSnapshot snapshot = await FirebaseFirestore.instance.collection('gallery').doc('photos').get();
+      // DocumentSnapshot snapshot = await FirebaseFirestore.instance.collection('gallery').doc('photos').get(); // Original Firestore call commented out
       List<String> photoUrls = [];
 
       // Assuming your photos are stored in fields pic1, pic2, pic3, ..., pic7
       for (int i = 1; i <= 10; i++) {
-        String? url = snapshot.get('pic$i');
-        if (url != null) {
-          photoUrls.add(url);
-        }
+        // String? url = snapshot.get('pic$i'); // Original Firestore call commented out
+        // if (url != null) { // Original Firestore call commented out
+        //   photoUrls.add(url); // Original Firestore call commented out
+        // } // Original Firestore call commented out
       }
 
       return photoUrls;
@@ -105,19 +105,19 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
   Future<String?> fetchPDFLink() async {
   try {
     // Fetch the document from Firestore
-    DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance
-        .collection('Rulebook')  // Replace with your collection name
-        .doc('PDF')      // Replace with your document ID
-        .get();
+    // DocumentSnapshot documentSnapshot = await FirebaseFirestore.instance // Original Firestore call commented out
+    //     .collection('Rulebook')  // Replace with your collection name // Original Firestore call commented out
+    //     .doc('PDF')      // Replace with your document ID // Original Firestore call commented out
+    //     .get(); // Original Firestore call commented out
 
     // Check if the document exists
-    if (documentSnapshot.exists) {
-      // Extract the 'link' field from the document
-      String pdfLink = documentSnapshot['link'];  // Assuming the field is named 'link'
-      return pdfLink;  // Return the PDF link
-    } else {
-      print('Document does not exist');
-    }
+    // if (documentSnapshot.exists) { // Original Firestore call commented out
+    //   // Extract the 'link' field from the document // Original Firestore call commented out
+    //   String pdfLink = documentSnapshot['link'];  // Assuming the field is named 'link' // Original Firestore call commented out
+    //   return pdfLink;  // Return the PDF link // Original Firestore call commented out
+    // } else { // Original Firestore call commented out
+    //   print('Document does not exist'); // Original Firestore call commented out
+    // } // Original Firestore call commented out
   } catch (e) {
     print('Error fetching document: $e');
   }
@@ -275,11 +275,11 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
                     crossAxisSpacing: 8.0,
                     mainAxisSpacing: 8.0,
                   ),
-                  itemCount: cardData.length,
+                  itemCount: _cardData.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
-                        switch (cardData[index]['title']) {
+                        switch (_cardData[index]['title']) {
                           case 'Black Eagles':
                             Navigator.push(
                               context,
@@ -331,7 +331,7 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
                           default:
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => CardScreen(cardData[index]['title'] ?? 'Unknown Card')),
+                              MaterialPageRoute(builder: (context) => CardScreen(_cardData[index]['title'] ?? 'Unknown Card')),
                             );
                             break;
                         }
@@ -347,7 +347,7 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
-                              cardData[index]['logo'] ?? 'assets/default_logo.png',
+                              _cardData[index]['logo'] ?? 'assets/default_logo.png',
                               height: 65,
                               width: 65,
                               errorBuilder: (context, error, stackTrace) {
@@ -356,7 +356,7 @@ class _CaptainLandingPageState extends State<CaptainLandingPage> {
                             ),
                             SizedBox(height: 8),
                             Text(
-                              cardData[index]['title'] ?? 'Unknown Title',
+                              _cardData[index]['title'] ?? 'Unknown Title',
                               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                               textAlign: TextAlign.center,
                             ),

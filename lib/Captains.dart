@@ -14,25 +14,25 @@ class CaptainScreen extends StatelessWidget {
   ];
 
   // A list of captain contacts for each team
-  final List<Map<String, String>> Captaincontacts = [
-    {'name': 'Firdous Khan', 'phone': '+91 9103283623'},
-    {'name': 'Joseph Binoy', 'phone': '+91 7048913545'},
-    {'name': 'Abhishek Sharma', 'phone': '+91 8275928185'},
-    {'name': 'Vishal Thakrele', 'phone': '+91 9309704830'},
-    {'name': 'Mohit Deshmukh', 'phone': '+91 8966878539'},
-    {'name': 'Mohammed Ali', 'phone': '+91 9309105003'},
-    {'name': 'Nishant Ghugal', 'phone': '+91 9309327670'},
+  final List<Map<String, String>> _captaincontacts = [
+    {'name': 'Jatin Meenia', 'phone': '6006831796'},
+    {'name': 'Alwyn Paul', 'phone': '9643351583'},
+    {'name': 'Saurabh Wande', 'phone': '9322611266'},
+    {'name': 'Dishant Kewat', 'phone': '9156929978'},
+    {'name': 'Rajat Sawarbandhe', 'phone': '7821865342'},
+    {'name': 'Allen Jess', 'phone': '7985606935'},
+    {'name': 'Denil Daby', 'phone': '9497213784'},
   ];
 
   // A list of vice-captain contacts for each team
-  final List<Map<String, String>> ViceCaptaincontacts = [
-    {'name': 'Lawrence Anthony', 'phone': '+91 8103055751'},
-    {'name': 'Abhishek Wasekar', 'phone': '+91 7720986890'},
-    {'name': 'Shantnu Fartode', 'phone': '+91 9604650588'},
-    {'name': 'Tejas Ukey', 'phone': '+91 7038484303'},
-    {'name': 'Ayush Tayade', 'phone': '+91 9322067169'},
-    {'name': 'Pranay Masurkar', 'phone': '+91 8767397213'},
-    {'name': 'Anurag Kukde', 'phone': '+91 9359265308'},
+  final List<Map<String, String>> _viceCaptaincontacts = [
+    {'name': 'Sahil Kumar', 'phone': '9149655254'},
+    {'name': 'Mathew Binoy', 'phone': '8130908578'},
+    {'name': 'Ayush Zurmure', 'phone': '9527555788'},
+    {'name': 'Suyash Burile', 'phone': '7020412386'},
+    {'name': 'Neeraj Ruda', 'phone': '8879962654'},
+    {'name': 'Ayush Benny', 'phone': '8606304705'},
+    {'name': 'Jelson Joseph', 'phone': '9863141632'},
   ];
 
   // Method to launch the dialer
@@ -71,23 +71,23 @@ class CaptainScreen extends StatelessWidget {
                   Divider(height: 1), 
                   ListTile(
                     title: Text(
-                      '${Captaincontacts[index]['name']!}', // Captain's name
+                      '${_captaincontacts[index]['name']!}', // Captain's name
                       style: TextStyle(fontSize: 16),
                     ),
                     trailing: IconButton(
                       icon: Icon(Icons.call),
-                      onPressed: () => _launchDialer(Captaincontacts[index]['phone']!), // Captain's phone
+                      onPressed: () => _launchDialer(_captaincontacts[index]['phone']!), // Captain's phone
                     ),
                   ),
                   
                   ListTile(
                     title: Text(
-                      '${ViceCaptaincontacts[index]['name']!}', // Vice captain's name
+                      '${_viceCaptaincontacts[index]['name']!}', // Vice captain's name
                       style: TextStyle(fontSize: 16),
                     ),
                     trailing: IconButton(
                       icon: Icon(Icons.call),
-                      onPressed: () => _launchDialer(ViceCaptaincontacts[index]['phone']!), // Vice captain's phone
+                      onPressed: () => _launchDialer(_viceCaptaincontacts[index]['phone']!), // Vice captain's phone
                     ),
                   ),
                 ],
