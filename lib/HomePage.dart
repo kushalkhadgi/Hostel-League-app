@@ -9,7 +9,7 @@ import 'package:rolebase/ManagementDashboard.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
-  final String role;  // This will be passed from the LoginPage after login
+  final String role; // This will be passed from the LoginPage after login
 
   HomePage({required this.role});
 
@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;  // Track the selected tab index
+  int _selectedIndex = 0; // Track the selected tab index
 
   // Pages for Management
   final List<Widget> _managementPages = [
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-   @override
+  @override
   Widget build(BuildContext context) {
     // Fallback if an unrecognized role is passed
     List<Widget> currentPages;
@@ -69,9 +69,8 @@ class _HomePageState extends State<HomePage> {
 
     // Ensure selectedIndex is valid
     if (_selectedIndex >= currentPages.length) {
-      _selectedIndex = 0;  // Reset index if out of range
+      _selectedIndex = 0; // Reset index if out of range
     }
-
 
     return Scaffold(
       body: Center(
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage> {
         buttonBackgroundColor: Colors.white,
         animationDuration: Duration(milliseconds: 300),
         height: 60,
-        items: bottomNavItems,  // Dynamically assign items based on role
+        items: bottomNavItems, // Dynamically assign items based on role
         onTap: _onItemTapped,
         index: _selectedIndex,
       ),

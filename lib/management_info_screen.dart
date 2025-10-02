@@ -3,10 +3,16 @@ import 'package:url_launcher/url_launcher.dart';
 
 class ManagementInfoScreen extends StatelessWidget {
   final List<Map<String, String>> contacts = [
-    {'name': 'Uday Rudrakar', 'phone': '+91 8698575167'},
-    {'name': 'Kushal Khadgi', 'phone': '+91 7058065928'},
-    {'name': 'Nakul Wanjari', 'phone': '+91 9356304607'},
-    {'name': 'Kevin Beji', 'phone': '+91 9718862960'},
+    {'name': 'Shahzab ali', 'phone': '7889847053'},
+    {'name': 'Sam Chacko Ruby', 'phone': '8848438994'},
+    {'name': 'Gaurav Pidurkar', 'phone': '8788498617'},
+    {'name': 'Yash Gawande', 'phone': '8261903434'},
+    {'name': 'Shahid sameer', 'phone': '9103843551'},
+    {'name': 'devesh banote', 'phone': '8010369855'},
+    {'name': 'Mayank Saha', 'phone': '8871334457'},
+    {'name': 'Sparsh Chalotra', 'phone': '7889964900'},
+    {'name': 'Omkar Pachbhai', 'phone': '8308202440'},
+    {'name': 'Nainesh Zod', 'phone': '9021667707'},
   ];
 
   Future<void> _launchPhone(String phoneNumber) async {
